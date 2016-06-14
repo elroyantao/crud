@@ -1,0 +1,7 @@
+{
+    "/api/": "/",
+    "/accounts/create": "/accounts",
+    "/accounts/all": "/accounts",
+    "/:resource/delete/:id": "/:resource/:id",
+    "/:resource/update/:id": "/:resource/:id" 
+}
