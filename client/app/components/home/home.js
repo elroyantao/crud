@@ -14,7 +14,14 @@ let homeModule = angular.module('home', [
   $stateProvider
     .state('home', {
       url: '/',
-      template: '<home></home>'
+      template: '<home accounts="$resolve.accounts"></home>',
+      resolve: {
+        accounts: function(Account) {
+          "ngInject";
+          console.log('s');
+          return Account.query().$promise;
+        }
+      }
     });
 })
 
