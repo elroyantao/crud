@@ -5,7 +5,6 @@ class HomeController {
     'ngInject';
     this.Account = Account;
     this.name = 'home';
-    console.log(this.accounts);
   }
   removeAccount(account){
     this.Account.delete({id:account.id},{},()=>{

@@ -6,12 +6,21 @@ let accountModule = angular.module('account', [uiRouter]).config(($stateProvider
   "ngInject";
 
   $stateProvider.state('add', {
-    url: '/add',
+    url: '/account',
     template: '<account account="$resolve.account" ></account>',
     resolve: {
       account: function(Account) {
         "ngInject";
         return new Account();
+      }
+    }
+  }).state('edit', {
+    url: '/account/:id',
+    template: '<account account="$resolve.account" ></account>',
+    resolve: {
+      account: function(Account,$stateParams) {
+        "ngInject";
+        return Account.get({id:$stateParams.id});
       }
     }
   });

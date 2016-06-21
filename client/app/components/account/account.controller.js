@@ -3,17 +3,24 @@
 class AccountController {
   constructor(Account,$location) {
     'ngInject';
+    this.name = 'account';
+    
     this.Account = Account;
     this.$location = $location;
-    console.log(this);
-    this.name = 'account';
     console.log(this.account);
   }
   submit(){
-    this.account.createdAt = new Date();
-    this.account.$save((res)=>{
-      this.$location.url('/');
-    });
+    if(this.account.id){
+      this.account.$update({id:this.account.id},(res)=>{
+        this.$location.url('/');
+      });
+    }else {
+      this.account.createdAt = new Date();
+      this.account.$save((res)=>{
+        this.$location.url('/');
+      });
+    }
+
   }
 }
 
